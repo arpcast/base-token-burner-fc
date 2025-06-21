@@ -1,0 +1,17 @@
+{
+  "name": "my-mini-app",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.x",
+    "react": "^18",
+    "@farcaster/frame-sdk": "^latest",
+    "@farcaster/frame-wagmi-connector": "^latest",
+    "wagmi": "^1.4.30",
+    "viem": "^2.5.0"
+  }
+}
