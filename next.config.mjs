@@ -1,23 +1,16 @@
-/** @type {import('next').NextConfig} */
+// next.config.js
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/.well-known/farcaster.json',
-        destination: 'https://api.farcaster.xyz/miniapps/manifest/01979542-1343-514a-249a-664b5a5cb299',
-        permanent: false, // This creates a 307 temporary redirect
-      },
-    ]
+  webpack(config, { isServer }) {
+    // Buat loader khusus supaya file ending .js di folder static/media tidak diproses
+    config.module.rules.push({
+      test: /\.js$/,
+      include: /static\/media/,
+      issuer: undefined,
+      use: [],
+    });
+    return config;
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  images: {
-    unoptimized: true,
-  },
-}
+};
 
-export default nextConfig
+module.exports = nextConfig;
+
